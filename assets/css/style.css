@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+/* Kiến thức phần CSS box sizing bài 47 */
+/* 1rem = 16px, đơn vị như vậy khi quy đổi nhẩm sẽ bị lẻ và khó quy đổi,
+nên ta tác động vào thẻ html để đổi 1rem = 10px cho dễ quy đổi như sau */
+html {
+  font-size: 62.5%;
+}
+/* Sau khi đổi xong, ta khôi phục lại cỡ chữ ban đầu 16px tương ứng 1.6rem */
+/* Kiến thức về quy đổi rem ở bài 56 */
+body {
+  font-size: 1.6rem;
+}
