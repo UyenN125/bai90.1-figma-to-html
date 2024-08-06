@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-/* Kiến thức phần CSS box sizing bài 47 */
+/* Kiến thức phần CSS box sizing bài 47-50 */
 /* 1rem = 16px, đơn vị như vậy khi quy đổi nhẩm sẽ bị lẻ và khó quy đổi,
 nên ta tác động vào thẻ html để đổi 1rem = 10px cho dễ quy đổi như sau */
 html {
@@ -11,4 +11,99 @@ html {
 /* Kiến thức về quy đổi rem ở bài 56 */
 body {
   font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+/* Tại sao code ở trong body lại áp dụng cho toàn trang? xem bài 49
+kế thừa trong CSS */
+/* Phần Flexbox bài 89.1 */
+/* =============common============ */
+/* Tạo ra những thuộc tính chung cho cả trang */
+a {
+  text-decoration: none;
+}
+/* Những thuộc tính áp dụng chung cho cả website */
+/* w1170, mla, mra */
+/* bị lệch trái, nên ta chỉnh căn giữa như sau */
+/* lỗi khi kéo nhỏ web thì mất chữ, ta dùng max-width: calc(100% - 48px), mỗi bên 24px */
+/* Kiến thức về Calc bài 85 */
+.btn {
+  display: inline-block;
+  min-width: 118px;
+  padding: 0% 16px;
+  line-height: 50px;
+  background: #171100;
+  color: white;
+  border-radius: 24.5px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+/* Kiến thức về thẻ inline bài 51, thuộc tính padding */
+.main-content {
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =============header============ */
+.header {
+  background: #fffcf4;
+}
+.header.fixed {
+  position: sticky;
+  top: -28px;
+}
+/* Kiến thức về position sticky bài 87.6, thuộc tính này giúp chúng ta tạo hiệu ứng bám dính,
+khi nội dung trong thẻ cha gần nhất có thanh cuộn */
+/* Top bằng 36px - 8px = 28px */
+.header .body {
+  display: flex;
+  align-items: center;
+  padding: 36px 0 8px;
+}
+/* Kiến thức về align-items bài 89.3 */
+.nav {
+  margin-left: auto;
+}
+.nav ul {
+  display: flex;
+}
+/* Bài 89.10: Margin với flexitem */
+/* Tác động lên thả a là con của thuộc tính nav, .nav a{} */
+.nav a {
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #5f5b53;
+  padding: 8px 21px;
+  /* Trên dưới là 8px phải trái là 21px, tổng là 42px */
+  /* Dùng padding sẽ tạo vùng tương tác, vùng bấm rộng hơn khi dùng margin */
+}
+.nav li.active a,
+.nav a:hover {
+  /* font-weight: 600; */
+  color: #171100;
+  text-shadow: 1px 0 0 currentColor;
+}
+/* Dùng font-weight chữ sẽ dày lên làm rung rung lăc chữ, để tránh rung lắc là dùng Text Shadow học ở bài 65 */
+/* 4 đối số cho text shadow, thứ nhất là ngang, đứng, nhòe, màu */
+/* Thêm dấu gạch dưới dùng kiến thức bài 83 */
+.nav li.active a::after {
+  position: absolute;
+  left: 21px;
+  bottom: 6px;
+  display: block;
+  content: "";
+  width: 12px;
+  height: 2px;
+  border-radius: 1px 0px 0px 0px;
+  background: #171100;
+}
+.header .btn-sign-up {
+  min-width: 144px;
+}
+
+.header .action {
+  margin-left: 49px;
 }
